@@ -1,0 +1,50 @@
+name: camera_sample_redux
+description: A new Flutter project.
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 3.7.0+1
+
+environment:
+  sdk: '>=2.18.6 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # For animation in error
+  lottie: ^2.2.0
+
+  # Path provider
+  path_provider: ^2.0.12
+
+  # Camera
+  camera: ^0.10.2+1
+
+  # For pick photo
+  photo_manager: ^2.5.2
+
+  # Redux
+  redux: ^5.0.0
+  flutter_redux: ^0.8.2
+  redux_thunk: ^0.4.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  build_runner: ^2.0.6
+  injectable_generator: ^1.4.1
+
+flutter:
+
+  assets:
+    - assets/icons/camera/
+    - assets/lottie/
+
+  fonts:
+    - family: GT Maru
+      fonts:
+        - asset: assets/fonts/GT-Maru-Mono.ttf
+
+  uses-material-design: true
