@@ -1,33 +1,33 @@
-import 'package:flutter/material.dart';
-import 'package:photo_manager/photo_manager.dart';
+import 'dart:io';
 
-Future<Widget> createImageButton({
+import 'package:camera_sample_redux/domain/state/global/global_state.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_redux/flutter_redux.dart';
+
+Widget createImageButton({
   double iconWidth = 36.0,
   double iconHeight = 36.0,
   Color? backgroundColor = Colors.white,
   void Function()? onPressed,
-}) async {
-  // TODO....
-  final List<AssetPathEntity> paths = await PhotoManager.getAssetPathList();
-  final List<AssetEntity> entities =
-      await paths.first.getAssetListPaged(page: 0, size: 1);
-  final photo = entities.first;
-
+}) {
   // TODO Color depends on theme
   return _createBaseContainer(
     iconWidth: iconWidth,
     iconHeight: iconHeight,
     backgroundColor: backgroundColor,
-    child: IconButton(
-      onPressed: onPressed,
-      icon: Image(
-        image: AssetEntityImageProvider(
-          photo,
-          isOriginal: false,
-          thumbnailSize: const ThumbnailSize.square(200),
-          thumbnailFormat: ThumbnailFormat.jpeg,
-        ),
-      ),
+    child: StoreConnector<GlobalState, String?>(
+      distinct: true,
+      converter: (store) => store.state.galleryState.currentPath,
+      builder: (context, path) {
+        return IconButton(
+          onPressed: onPressed,
+          icon: path != null
+              ? Image.file(
+              File(path),
+              fit: BoxFit.cover, // TODO Normal scale
+          ) : Container(), // TODO when null
+        );
+      },
     ),
   );
 }

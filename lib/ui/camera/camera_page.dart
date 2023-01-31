@@ -1,11 +1,10 @@
-import 'package:camera_sample_redux/domain/action/camera/preview/init/on_initialization_camera_action.dart';
+import 'package:camera_sample_redux/domain/action/camera/camera/init/on_initialization_camera_action.dart';
 import 'package:camera_sample_redux/domain/state/camera/preview/initialization_camera_state.dart';
 import 'package:camera_sample_redux/domain/state/global/global_state.dart';
 import 'package:camera_sample_redux/ui/camera/camera_page_content.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'error/error_screen.dart';
-
 
 class CameraPage extends StatefulWidget {
   @override
@@ -35,7 +34,8 @@ class CameraPageState extends State<CameraPage> with WidgetsBindingObserver {
       child: Scaffold(
         body: StoreConnector<GlobalState, InitializationCameraState>(
           distinct: true,
-          converter: (store) => store.state.preview.cameraState,
+          converter: (store) =>
+              store.state.previewState.cameraState,
           builder: (context, state) {
             if (state == InitializationCameraState.ERROR) {
               return const ErrorScreen();

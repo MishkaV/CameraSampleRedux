@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 class CameraPageHeader extends StatelessWidget {
@@ -13,7 +15,7 @@ class CameraPageHeader extends StatelessWidget {
         // TODO Also depends on theme
         // TODO Hardcode?
         IconButton(
-            onPressed: () {},
+            onPressed: () => exit(0),
             iconSize: iconSize,
             icon: Icon(Icons.close, color: iconColor)),
         Text(

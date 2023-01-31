@@ -1,6 +1,6 @@
-import 'package:camera_sample_redux/domain/action/camera/preview/error/error_initialization_camera_action.dart';
-import 'package:camera_sample_redux/domain/action/camera/preview/init/initialization_camera_action.dart';
-import 'package:camera_sample_redux/domain/action/camera/preview/show/complete_initialization_camera_action.dart';
+import 'package:camera_sample_redux/domain/action/camera/camera/init/error/error_initialization_camera_action.dart';
+import 'package:camera_sample_redux/domain/action/camera/camera/init/initialization_camera_action.dart';
+import 'package:camera_sample_redux/domain/action/camera/camera/show/complete_initialization_camera_action.dart';
 import 'package:camera_sample_redux/domain/state/camera/preview/initialization_camera_state.dart';
 import 'package:camera_sample_redux/domain/state/camera/preview/preview_state.dart';
 import 'package:redux/redux.dart';

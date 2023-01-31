@@ -15,7 +15,7 @@ class CameraPreviewState extends State<CameraPagePreview> {
         borderRadius: const BorderRadius.all(Radius.circular(36)),
         child: StoreConnector<GlobalState, PreviewState>(
           distinct: true,
-          converter: (store) => store.state.preview,
+          converter: (store) => store.state.previewState,
           builder: (context, state) {
             return state.controller?.buildPreview() ?? Container();
           },
