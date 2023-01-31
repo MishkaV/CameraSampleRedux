@@ -1,3 +1,4 @@
+import 'package:camera_sample_redux/domain/state/camera/flash/flash_state.dart';
 import 'package:camera_sample_redux/domain/state/camera/gallery/gallery_state.dart';
 import 'package:camera_sample_redux/domain/state/camera/preview/preview_state.dart';
 import 'package:redux/redux.dart';
@@ -14,11 +15,17 @@ class GlobalState {
   static GlobalState initState = GlobalState(
     PreviewState.empty,
     GalleryState.empty,
+    FlashState.empty,
   );
 
   // TODO Maybe group?
   final PreviewState previewState;
   final GalleryState galleryState;
+  final FlashState flashState;
 
-  const GlobalState(this.previewState, this.galleryState);
+  const GlobalState(
+    this.previewState,
+    this.galleryState,
+    this.flashState,
+  );
 }
