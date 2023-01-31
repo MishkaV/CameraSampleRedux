@@ -1,10 +1,7 @@
-import 'package:camera/camera.dart';
-import 'package:camera_sample_redux/domain/state/camera/preview/initialization_camera_state.dart';
 import 'package:camera_sample_redux/domain/state/camera/preview/preview_state.dart';
 import 'package:camera_sample_redux/ui/camera/components/preview/camera_page_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
-
 import '../../../../domain/state/global/global_state.dart';
 
 class CameraPreviewState extends State<CameraPagePreview> {
@@ -20,19 +17,10 @@ class CameraPreviewState extends State<CameraPagePreview> {
           distinct: true,
           converter: (store) => store.state.preview,
           builder: (context, state) {
-            if (state.controller?.value?.isInitialized == true) {
-              return state.controller?.buildPreview() ?? Container();
-            }
-            return Container();
+            return state.controller?.buildPreview() ?? Container();
           },
         ),
       ),
     );
-  }
-
-  @override
-  State<StatefulWidget> createState() {
-    // TODO: implement createState
-    throw UnimplementedError();
   }
 }

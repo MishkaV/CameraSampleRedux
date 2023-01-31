@@ -23,7 +23,6 @@ class CameraPageState extends State<CameraPage> with WidgetsBindingObserver {
         .dispatch(OnInitializationCameraAction());
   }
 
-
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();

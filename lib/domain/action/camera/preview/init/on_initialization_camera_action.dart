@@ -25,7 +25,7 @@ class OnInitializationCameraAction
         cameraLensDirection,
         resolutionPreset,
       );
-      controller.initialize();
+      await controller.initialize();
       store.dispatch(CompleteInitializationCameraAction(controller));
     } catch (error) {
       store.dispatch(ErrorInitializationCameraAction(error: error.toString()));
