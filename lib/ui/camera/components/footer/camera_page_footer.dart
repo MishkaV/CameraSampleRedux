@@ -1,6 +1,7 @@
 import 'package:camera_sample_redux/domain/action/camera/camera/change/on_change_camera_action.dart';
 import 'package:camera_sample_redux/domain/action/camera/camera/flash/on_change_flash_action.dart';
 import 'package:camera_sample_redux/domain/action/camera/camera/take_photo/on_take_photo_action.dart';
+import 'package:camera_sample_redux/domain/action/camera/camera/zoom/on_looped_change_zoom_action.dart';
 import 'package:camera_sample_redux/domain/state/global/global_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
@@ -33,7 +34,10 @@ class CameraPageFooter extends StatelessWidget {
           onPressed: () => StoreProvider.of<GlobalState>(context)
               .dispatch(OnTakePhotoAction()),
         ),
-        createTextButton(text: "1x"),
+        createZoomButton(
+          onPressed: () => StoreProvider.of<GlobalState>(context)
+              .dispatch(OnLoopedChangeZoomAction()),
+        ),
         createImageButton(), // TODO onPress?
       ],
     );

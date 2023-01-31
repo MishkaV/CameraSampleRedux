@@ -1,6 +1,7 @@
 import 'package:camera_sample_redux/domain/state/camera/flash/flash_state.dart';
 import 'package:camera_sample_redux/domain/state/camera/gallery/gallery_state.dart';
 import 'package:camera_sample_redux/domain/state/camera/preview/preview_state.dart';
+import 'package:camera_sample_redux/domain/state/camera/zoom/zoom_state.dart';
 import 'package:redux/redux.dart';
 import 'package:redux_thunk/redux_thunk.dart';
 
@@ -16,16 +17,19 @@ class GlobalState {
     PreviewState.empty,
     GalleryState.empty,
     FlashState.empty,
+    ZoomState.empty,
   );
 
   // TODO Maybe group?
   final PreviewState previewState;
   final GalleryState galleryState;
   final FlashState flashState;
+  final ZoomState zoomState;
 
   const GlobalState(
     this.previewState,
     this.galleryState,
     this.flashState,
+    this.zoomState,
   );
 }

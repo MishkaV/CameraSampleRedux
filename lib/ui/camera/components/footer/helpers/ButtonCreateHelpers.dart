@@ -23,9 +23,10 @@ Widget createImageButton({
           onPressed: onPressed,
           icon: path != null
               ? Image.file(
-              File(path),
-              fit: BoxFit.cover, // TODO Normal scale
-          ) : Container(), // TODO when null
+                  File(path),
+                  fit: BoxFit.cover, // TODO Normal scale
+                )
+              : Container(), // TODO when null
         );
       },
     ),
@@ -55,8 +56,7 @@ Widget createIconButton({
   );
 }
 
-Widget createTextButton({
-  required String text,
+Widget createZoomButton({
   double iconWidth = 36.0,
   double iconHeight = 36.0,
   Color? backgroundColor = Colors.white,
@@ -67,12 +67,21 @@ Widget createTextButton({
     iconWidth: iconWidth,
     iconHeight: iconHeight,
     backgroundColor: backgroundColor,
-    child: Center(
-      child: Text(
-        text,
-        style: TextStyle(
-            color: Colors.black, fontSize: 16.0), // TODO Depence on theme
-      ),
+    child: StoreConnector<GlobalState, double>(
+      distinct: true,
+      converter: (store) => store.state.zoomState.currentZoomLevel,
+      builder: (context, zoomLevel) {
+        return InkWell(
+          child: Center(
+            child: Text(
+              "${zoomLevel}x",
+              style: TextStyle(
+                  color: Colors.black, fontSize: 14.0), // TODO Depence on theme
+            ),
+          ),
+          onTap: onPressed,
+        );
+      },
     ),
   );
 }
